@@ -81,13 +81,13 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 ### video demo
 <div>
   <td><img src="assets/demo0.gif" width="1280"/></td>
-  <video src="assets/demo1.mp4" width="1280" controls></video> 
+  <!video src="assets/demo1.mp4" width="1280" controls></video> 
    <p>
   **The same video can have its weather changed arbitrarily while ensuring the consistency of roads and buildings. Display 5 types of weather effect changes.**  
   </p>  
   
   <td><img src="assets/demo.gif" width="1280"/></td>
-  <video src="assets/demo2.mp4" width="1280" controls></video>
+  <!video src="assets/demo2.mp4" width="1280" controls></video>
 
   <p>
   **Controlling the generation of the first and last frame images and comparing them with the original video can better control the generation quality.**
@@ -96,9 +96,7 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
     若浏览器不自动预览：
     <a href="assets/demo1.mp4">点击下载/查看 MP4</a>
   </p>
-  <!-- 可复制上面 video 块，替换为其他天气的视频路径 -->
-  <!-- <video src="../outputmp4/6/sunny/6_sunny.mp4" width="720" controls></video> -->
-  <!-- <video src="../outputmp4/6/heavy_rain/6_heavy_rain.mp4" width="720" controls></video> -->
+  
 </div>
 
 
@@ -111,7 +109,7 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
   - Intra-group consistency: Unified prompts, low creativity, high fidelity, and color alignment through post-processing when necessary.
 - Video phase:
   - First frame reference + stable video prompts (`prompts/video/*.yaml`); if the API supports `last_frame`, then enable interpolation;
-  - Fixed reference frame selection logic: Prioritize `0000*` and `0008*`, otherwise take the first/last file.
+  
 ---
 
 ---
