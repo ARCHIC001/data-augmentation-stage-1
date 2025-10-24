@@ -8,47 +8,46 @@
 
 ---
 
-## 概览
-- 目标：从摩托车第一视角图像出发，批量改换多种天气（晴/夕阳/大雨/夜雨/大雾），并生成连贯视频。
-- 重点：几何与交通要素不变、组内一致性强、流程自动化、可配置可复现。
-- 输出结构：
-  - 图片：`outputimg/<scene>/<weather>/<frame>_<weather>.png`
-  - 视频：`outputmp4/<scene>/<weather>/<scene>_<weather>.mp4`
+## Overview
+- Goal: Starting from first-person perspective images of motorcycles, batch change to various weather conditions (sunny/sunset/heavy rain/night rain/fog) and generate coherent videos.
+- Key points: Geometry and traffic elements remain unchanged, strong consistency within groups, automated processes, configurable and reproducible.
+- Output structure:
+  - Images: `outputimg/<scene>/<weather>/<frame>_<weather>.png`
+  - Videos: `outputmp4/<scene>/<weather>/<scene>_<weather>.mp4`
+
+---
+## Directory Structure
+```
+input/                    # Original frame extraction
+outputimg/                # Image weather enhancement output
+outputmp4/                # Video output
+configs/                  # Unified configuration (API Key / batch processing parameters)
+prompts/                  # Prompt templates for images and videos
+scripts/                  # Batch processing scripts
+```
 
 ---
 
-## 目录结构
-```
-input/                    # 原始抽帧
-outputimg/                # 图片天气增强输出
-outputmp4/                # 视频输出
-configs/                  # 统一配置（API Key / 批处理参数）
-prompts/                  # 图片与视频的 Prompt 模板
-scripts/                  # 批处理脚本
-```
-
----
-
-## 快速开始
-1) 安装与 Key
+## Quick Start
+1) Installation and Key
 ```bash
 python3 -m pip install -r requirements.txt
-export GEMINI_API_KEY="<your_key>"  # 或在 configs/gemini_api_key.txt 写入
+export GEMINI_API_KEY="<your_key>"  # Or write it in configs/gemini_api_key.txt
 ```
-2) 批量天气增强（独立逐帧，避免构图粘连）
+2) Batch Weather Enhancement (Independent Frame-by-Frame, Avoid Composition Adhesion)
 ```bash
 python3 scripts/gemini_weather_pairs.py configs/gemini_weather.yaml
 ```
-3) 批量视频生成（默认 8 秒，首帧参考）
+3) Batch Video Generation (8 seconds by default, first frame as reference)
 ```bash
 python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 ```
 
 ---
 
-## 结果展示（Results）
+## Results
 
-### 图片对比（首参考帧+尾参考帧）
+### Image comparison (with first reference frame + last reference frame)
 <table>
   <tr>
     <th>original input</th>
@@ -81,12 +80,18 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 
 ### video demo
 <div>
-  <td><img src="assets/demo0.gif" width="720"/></td>
+  <td><img src="assets/demo0.gif" width="1280"/></td>
+  <video src="assets/demo1.mp4" width="1280" controls></video> 
+   <p>
+  **The same video can have its weather changed arbitrarily while ensuring the consistency of roads and buildings. Display 5 types of weather effect changes.**  
+  </p>  
+  
+  <td><img src="assets/demo.gif" width="1280"/></td>
+  <video src="assets/demo2.mp4" width="1280" controls></video>
 
-  <video src="assets/demo1.mp4" width="720" controls></video> 
-  <td><img src="assets/demo.gif" width="840"/></td>
-  <video src="assets/demo2.mp4" width="720" controls></video>
-
+  <p>
+  **Controlling the generation of the first and last frame images and comparing them with the original video can better control the generation quality.**
+  </p>
   <p>
     若浏览器不自动预览：
     <a href="assets/demo1.mp4">点击下载/查看 MP4</a>
@@ -99,15 +104,14 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 
 ---
 
-## Prompt 原则与一致性
-- 图片阶段：
-  - 正向：POV 与几何保持 + 天气特征 + 色调/光照；
-  - 负向：禁止新增/删除车辆与物体、禁止改变道路与标志、禁止伪影/过曝；
-  - 组内一致性：统一 prompt、低创造性（creativity）、较高保真（fidelity），必要时后处理做颜色对齐。
-- 视频阶段：
-  - 首帧参考 + 稳定视频 prompt（`prompts/video/*.yaml`）；若 API 支持 `last_frame` 再开启插值；
-  - 固定参考帧选择逻辑：优先 `0000*` 与 `0008*`，否则取首/尾文件。
-
+## Prompt Principles and Consistency
+- Image phase:
+  - Positive aspects: Maintain POV and geometry + weather characteristics + color tone/lighting;
+  - Negative aspects: It is prohibited to add/delete vehicles and objects, to change roads and signs, and to have artifacts/overexposure;
+  - Intra-group consistency: Unified prompts, low creativity, high fidelity, and color alignment through post-processing when necessary.
+- Video phase:
+  - First frame reference + stable video prompts (`prompts/video/*.yaml`); if the API supports `last_frame`, then enable interpolation;
+  - Fixed reference frame selection logic: Prioritize `0000*` and `0008*`, otherwise take the first/last file.
 ---
 
 ---
