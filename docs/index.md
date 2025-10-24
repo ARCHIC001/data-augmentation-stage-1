@@ -48,43 +48,52 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 
 ## 结果展示（Results）
 
-### 图片对比（首帧 vs. 尾帧）
+### 图片对比（首参考帧+尾参考帧）
 <table>
   <tr>
-    <th>原始首帧</th>
-    <th>大雾首帧</th>
-    <th>晴天空气首帧</th>
-    <th>暴雨首帧</th>
+    <th>original input</th>
+    <th>Dense Fog</th>
+    <th>Sunny</th>
+    <th>Heavy Rain</th>
+    <th>Rainy Night</th>
+    <th>Sunset Backlight</th>
   </tr>
   <tr>
-    <td><img src="assets/input6_0000.png" width="280"/></td>
-    <td><img src="assets/dense_fog_0000.png" width="280"/></td>
-    <td><img src="assets/sunny_0000.png" width="280"/></td>
-    <td><img src="assets/heavy_rain_0000.png" width="280"/></td>
+    <td><img src="assets/input6_0000.png" width="320"/></td>
+    <td><img src="assets/dense_fog_0000.png" width="320"/></td>
+    <td><img src="assets/sunny_0000.png" width="320"/></td>
+    <td><img src="assets/heavy_rain_0000.png" width="320"/></td>
+    <td><img src="assets/rainy_night_0000.png" width="320"/></td>
+    <td><img src="assets/sunset_backlight_0000.png" width="320"/></td>
   </tr>
   <tr>
-    <th>原始尾帧</th>
-    <th>大雾尾帧</th>
-    <th>晴空气尾帧</th>
-    <th>暴雨尾帧</th>
+    <td><img src="assets/input6_0008.png" width="320"/></td>
+    <td><img src="assets/dense_fog_0008.png" width="320"/></td>
+    <td><img src="assets/sunny_0008.png" width="320"/></td>
+    <td><img src="assets/heavy_rain_0008.png" width="320"/></td>
+    <td><img src="assets/rainy_night_0008.png" width="320"/></td>
+    <td><img src="assets/sunset_backlight_0008.png" width="320"/></td>
   </tr>
   <tr>
-    <td><img src="assets/input6_0008.png" width="280"/></td>
-    <td><img src="assets/dense_fog_0008.png" width="280"/></td>
-    <td><img src="assets/sunny_0008.png" width="280"/></td>
-    <td><img src="assets/heavy_rain_0008.png" width="280"/></td>
+    
   </tr>
-</table>
+  </table>
 
-> 更多天气（夜雨、夕阳）可复制该表格并替换 `assets/` 下相应文件。
+### video demo
+<div>
+  <td><img src="assets/demo0.gif" width="720"/></td>
 
-### 视频示例
-<div align="center">
-  <video src="assets/6_dense_fog.mp4" width="720" controls></video>
+  <video src="assets/demo1.mp4" width="720" controls></video> 
+  <td><img src="assets/demo.gif" width="840"/></td>
+  <video src="assets/demo2.mp4" width="720" controls></video>
+
   <p>
-    若浏览器不自动播放，可 <a href="assets/6_dense_fog.mp4">下载 MP4</a> 或查看 GIF 预览。
+    若浏览器不自动预览：
+    <a href="assets/demo1.mp4">点击下载/查看 MP4</a>
   </p>
-  <img src="assets/demo.gif" width="640" alt="dense fog gif preview"/>
+  <!-- 可复制上面 video 块，替换为其他天气的视频路径 -->
+  <!-- <video src="../outputmp4/6/sunny/6_sunny.mp4" width="720" controls></video> -->
+  <!-- <video src="../outputmp4/6/heavy_rain/6_heavy_rain.mp4" width="720" controls></video> -->
 </div>
 
 
