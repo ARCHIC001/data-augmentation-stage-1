@@ -1,0 +1,29 @@
+# Batch VEO video generation settings
+
+model_name: models/veo-3.1-generate-preview
+api_key_path: gemini_api_key.txt
+
+input_root: ../outputimg
+output_root: ../outputmp4
+
+# Default generation parameters (can be overridden per-variant)
+defaults:
+  duration_seconds: 8
+  aspect_ratio: "16:9"
+  resolution: null
+  poll_interval_seconds: 10
+  use_first_frame_reference: true
+  use_last_frame: false
+
+
+variants:
+  - name: sunny
+    prompt_file: ../prompts/video/sunny.yaml
+  - name: sunset_backlight
+    prompt_file: ../prompts/video/sunset_backlight.yaml
+  - name: heavy_rain
+    prompt_file: ../prompts/video/heavy_rain.yaml
+  - name: rainy_night
+    prompt_file: ../prompts/video/rainy_night.yaml
+  - name: dense_fog
+    prompt_file: ../prompts/video/dense_fog.yaml

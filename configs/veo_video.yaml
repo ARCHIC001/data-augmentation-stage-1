@@ -1,0 +1,24 @@
+model_name: veo-3.1-generate-preview
+api_key_path: gemini_api_key.txt          # 因为 key 文件就在 configs/ 目录里
+# Paths to the guiding frames (set these before running)
+
+first_frame: ../input/shifan/3/0000.png   # 回到项目根再定位到输入帧
+last_frame: ../input/shifan/3/0008.png
+output_path: ../outputmp4/veo_sample.mp4
+
+
+prompt: |-
+  First-person motorcycle POV along an urban road, maintain original layout, vehicles,
+  signage, and lane geometry. Generate smooth forward motion with natural camera shake,
+  realistic lighting and reflections.
+negative_prompt: |-
+  additional vehicles, new obstacles, layout change, warped horizon, unreadable signage,
+  excessive motion blur, glitches, cartoonish rendering.
+
+duration_seconds: 8
+aspect_ratio: "16:9"
+seed: 20241025
+poll_interval_seconds: 10
+reference_type: ASSET  # or STYLE
+generate_audio: false
+compression_quality: OPTIMIZED  # or LOSSLESS
