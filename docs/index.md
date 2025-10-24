@@ -81,13 +81,13 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 ### video demo
 <div>
   <td><img src="assets/demo0.gif" width="1280"/></td>
-  <!video src="assets/demo1.mp4" width="1280" controls></video> 
+  <video src="assets/demo1.mp4" width="1280" controls></video> 
    <p>
   **The same video can have its weather changed arbitrarily while ensuring the consistency of roads and buildings. Display 5 types of weather effect changes.**  
   </p>  
   
   <td><img src="assets/demo.gif" width="1280"/></td>
-  <!video src="assets/demo2.mp4" width="1280" controls></video>
+  <video src="assets/demo2.mp4" width="1280" controls></video>
 
   <p>
   **Controlling the generation of the first and last frame images and comparing them with the original video can better control the generation quality.**
