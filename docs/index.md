@@ -110,22 +110,7 @@ python3 scripts/veo_video_batch.py configs/veo_video_batch.yaml
 
 ---
 
-
----
-
-## 将本页发布到 GitHub Pages（可选）
-- 在仓库 Settings → Pages：
-  - Source 选择 `Deploy from a branch`；
-  - Branch 选择 `main`，文件夹选择 `/docs`；
-- 将本文件命名为 `docs/index.md` 或在 `docs/` 下新建 `index.md` 引用本页：
-```md
----
-redirect_to: jieshao.md
----
-```
-- 稍后访问仓库 Pages URL 即可查看在线演示页。
-
 ---
 
 ## License & Citation
-only for development show.
+only for stf development show.
